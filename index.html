@@ -6,30 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#008cff">
 
-    <title>ZUNADAM MOD - Website chính thức</title>
+    <title>ZUNADAM MOD - Zunadam</title>
 
     <meta name="description"
-          content="ZUNADAM MOD - Trang giới thiệu các công cụ, ứng dụng và liên kết tải xuống.">
-
-    <meta name="robots" content="index, follow">
+          content="ZUNADAM MOD - Website giới thiệu ứng dụng, trò chơi và liên kết tải xuống.">
     <meta name="author" content="ZUNADAM">
+    <meta name="robots" content="index, follow">
 
-    <!-- SEO: Thay URL bên dưới bằng địa chỉ GitHub Pages thật của bạn -->
-    <link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/">
+    <!-- Thay bằng URL GitHub Pages thật của bạn -->
+    <link rel="canonical"
+          href="https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="ZUNADAM MOD">
     <meta property="og:description"
-          content="Website chính thức của ZUNADAM MOD.">
+          content="Chào mừng bạn đến với website ZUNADAM MOD.">
     <meta property="og:url"
           content="https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/">
     <meta property="og:image" content="avatar.png">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="avatar.png">
 
-    <!-- Dữ liệu có cấu trúc -->
+    <!-- SEO JSON-LD -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -41,19 +40,19 @@
     </script>
 
     <style>
-        /* =========================
-           CÀI ĐẶT CHUNG
-        ========================= */
+        /* =========================================
+           1. CÀI ĐẶT CHUNG
+        ========================================= */
 
         :root {
             --blue: #008cff;
-            --blue-light: #38c8ff;
-            --blue-dark: #001d38;
-            --background: #020b16;
-            --card: rgba(4, 28, 51, 0.88);
-            --text: #ffffff;
-            --muted: #b8d9f2;
+            --light-blue: #39d5ff;
+            --dark-blue: #001a32;
+            --background: #020914;
+            --card-background: rgba(3, 26, 47, 0.94);
             --border: rgba(0, 153, 255, 0.45);
+            --text: #ffffff;
+            --muted: #b8d8ef;
         }
 
         * {
@@ -64,6 +63,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
@@ -72,9 +72,9 @@
             color: var(--text);
             background:
                 radial-gradient(
-                    circle at 50% 0%,
-                    #063b68 0%,
-                    #031629 40%,
+                    ellipse at 50% 0%,
+                    #06385e 0%,
+                    #031629 42%,
                     #01060d 100%
                 );
             font-family: Arial, Helvetica, sans-serif;
@@ -85,49 +85,46 @@
             text-decoration: none;
         }
 
-        button,
-        a {
-            -webkit-tap-highlight-color: transparent;
-        }
-
         button {
             font: inherit;
         }
 
-        /* =========================
-           HIỆU ỨNG MƯA XANH
-        ========================= */
+        /* =========================================
+           2. HIỆU ỨNG MƯA XANH
+        ========================================= */
 
         #rainCanvas {
             position: fixed;
             inset: 0;
+            z-index: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
             pointer-events: none;
-            opacity: 0.48;
+            opacity: 0.42;
         }
 
-        /* =========================
-           LOADING SCREEN
-        ========================= */
+        /* =========================================
+           3. MÀN HÌNH LOADING
+        ========================================= */
 
         #loadingScreen {
             position: fixed;
             inset: 0;
-            z-index: 9999;
+            z-index: 10000;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 20px;
             background:
                 radial-gradient(
                     circle at center,
-                    #063b68 0%,
-                    #02172b 48%,
+                    #064475 0%,
+                    #02182d 48%,
                     #01060d 100%
                 );
-            transition: opacity 0.7s ease, visibility 0.7s ease;
+            transition:
+                opacity 0.7s ease,
+                visibility 0.7s ease;
         }
 
         #loadingScreen.finished {
@@ -138,35 +135,37 @@
 
         .loading-content {
             width: 100%;
-            max-width: 440px;
+            max-width: 420px;
             text-align: center;
         }
 
-        .loading-logo {
-            width: 100px;
-            height: 100px;
+        .loading-avatar {
+            display: block;
+            width: 95px;
+            height: 95px;
             margin: 0 auto 22px;
-            border: 3px solid var(--blue-light);
+            border: 3px solid var(--light-blue);
             border-radius: 50%;
             object-fit: cover;
+            background: #05223b;
             box-shadow:
-                0 0 20px rgba(0, 153, 255, 0.8),
-                0 0 55px rgba(0, 153, 255, 0.35);
+                0 0 22px var(--blue),
+                0 0 50px rgba(0, 140, 255, 0.35);
         }
 
         .loading-title {
             margin-bottom: 10px;
-            color: #ffffff;
+            color: white;
             font-size: clamp(25px, 6vw, 36px);
             font-weight: 900;
             letter-spacing: 3px;
-            text-shadow: 0 0 18px var(--blue);
+            text-shadow: 0 0 20px var(--blue);
         }
 
         .loading-subtitle {
             margin-bottom: 28px;
-            color: var(--muted);
-            font-size: 13px;
+            color: #b4dcf7;
+            font-size: 12px;
             letter-spacing: 2px;
         }
 
@@ -174,10 +173,9 @@
             width: 100%;
             height: 13px;
             overflow: hidden;
-            border: 1px solid rgba(56, 200, 255, 0.7);
+            border: 1px solid rgba(57, 213, 255, 0.65);
             border-radius: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 0 18px rgba(0, 140, 255, 0.2);
+            background: rgba(0, 0, 0, 0.55);
         }
 
         #loadingBar {
@@ -187,24 +185,24 @@
             background: linear-gradient(
                 90deg,
                 #0066ff,
-                #00d9ff,
+                #00cfff,
                 #ffffff
             );
-            box-shadow: 0 0 15px var(--blue-light);
-            transition: width 0.08s linear;
+            box-shadow: 0 0 15px var(--light-blue);
+            transition: width 0.06s linear;
         }
 
-        .loading-info {
+        .loading-information {
             display: flex;
             justify-content: space-between;
             gap: 12px;
             margin-top: 13px;
-            color: #d8f1ff;
+            color: #d5efff;
             font-size: 13px;
         }
 
         #loadingPercent {
-            color: var(--blue-light);
+            color: var(--light-blue);
             font-weight: 900;
         }
 
@@ -214,9 +212,99 @@
             font-size: 12px;
         }
 
-        /* =========================
-           TRANG CHÍNH
-        ========================= */
+        /* =========================================
+           4. ĐỒNG HỒ TREO NHỎ GÓC TRÊN BÊN TRÁI
+        ========================================= */
+
+        .hanging-clock {
+            position: fixed;
+            top: 0;
+            left: 12px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+            pointer-events: none;
+            filter: drop-shadow(
+                0 4px 10px rgba(0, 140, 255, 0.2)
+            );
+        }
+
+        .clock-chain {
+            width: 3px;
+            height: 16px;
+            border-radius: 5px;
+            background: linear-gradient(
+                90deg,
+                #0063a8,
+                #7ae5ff,
+                #0063a8
+            );
+        }
+
+        .clock-hook {
+            width: 12px;
+            height: 12px;
+            margin-bottom: -2px;
+            border: 2px solid var(--light-blue);
+            border-radius: 50%;
+            background: #03172a;
+        }
+
+        .clock-face {
+            position: relative;
+            width: 100px;
+            padding: 9px 4px 7px;
+            border: 1.5px solid #27c9ff;
+            border-radius: 11px;
+            background: linear-gradient(
+                150deg,
+                rgba(5, 55, 91, 0.98),
+                rgba(1, 13, 27, 0.98)
+            );
+            text-align: center;
+            box-shadow:
+                inset 0 0 10px rgba(0, 140, 255, 0.12),
+                0 0 12px rgba(0, 140, 255, 0.3);
+        }
+
+        .clock-label {
+            margin: 4px 0 5px;
+            color: #8fdcff;
+            font-size: 7px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        #clock {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 0;
+            font-variant-numeric: tabular-nums;
+            text-shadow: 0 0 8px var(--light-blue);
+        }
+
+        #dateText {
+            margin-top: 5px;
+            color: #b7e8ff;
+            font-size: 8px;
+            line-height: 1.4;
+        }
+
+        .clock-bottom {
+            width: 25px;
+            height: 5px;
+            margin-top: -1px;
+            border: 1.5px solid #28caff;
+            border-radius: 0 0 6px 6px;
+            background: #042440;
+        }
+
+        /* =========================================
+           5. NỘI DUNG CHÍNH
+        ========================================= */
 
         #mainContent {
             position: relative;
@@ -229,10 +317,10 @@
 
         #mainContent.visible {
             display: block;
-            animation: mainAppear 0.8s ease both;
+            animation: pageAppear 0.8s ease both;
         }
 
-        @keyframes mainAppear {
+        @keyframes pageAppear {
             from {
                 opacity: 0;
                 transform: translateY(12px);
@@ -250,20 +338,21 @@
             margin: 0 auto;
         }
 
-        /* =========================
-           THANH ĐẦU TRANG
-        ========================= */
+        /* =========================================
+           6. THANH ĐẦU TRANG
+        ========================================= */
 
         .topbar {
+            min-height: 65px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 12px;
-            padding: 13px 16px;
-            margin-bottom: 25px;
+            padding: 12px 16px 12px 125px;
+            margin-bottom: 24px;
             border: 1px solid var(--border);
             border-radius: 15px;
-            background: rgba(0, 20, 39, 0.82);
+            background: rgba(0, 20, 39, 0.86);
             box-shadow: 0 0 22px rgba(0, 140, 255, 0.12);
             backdrop-filter: blur(10px);
         }
@@ -276,15 +365,15 @@
         }
 
         .brand span {
-            color: var(--blue-light);
+            color: var(--light-blue);
         }
 
         .status {
             display: flex;
             align-items: center;
             gap: 7px;
-            color: #a9e9ff;
-            font-size: 11px;
+            color: #b5eaff;
+            font-size: 10px;
             white-space: nowrap;
         }
 
@@ -303,35 +392,34 @@
             }
         }
 
-        /* =========================
-           HỒ SƠ
-        ========================= */
+        /* =========================================
+           7. HỒ SƠ VÀ ẢNH ĐẠI DIỆN
+        ========================================= */
 
         .profile {
             padding: 30px 20px;
-            margin-bottom: 22px;
-            text-align: center;
+            margin-bottom: 24px;
             border: 1px solid var(--border);
             border-radius: 22px;
             background: linear-gradient(
                 145deg,
                 rgba(0, 64, 115, 0.62),
-                rgba(0, 12, 25, 0.92)
+                rgba(0, 12, 25, 0.94)
             );
+            text-align: center;
             box-shadow: 0 0 30px rgba(0, 140, 255, 0.13);
         }
 
         .avatar-wrap {
-            position: relative;
-            width: 118px;
-            height: 118px;
+            width: 112px;
+            height: 112px;
             margin: 0 auto 18px;
         }
 
         .avatar {
-            width: 118px;
-            height: 118px;
-            border: 3px solid var(--blue-light);
+            width: 112px;
+            height: 112px;
+            border: 3px solid var(--light-blue);
             border-radius: 50%;
             object-fit: cover;
             background: #05223a;
@@ -349,46 +437,23 @@
         }
 
         .profile h1 span {
-            color: var(--blue-light);
+            color: var(--light-blue);
         }
 
         .profile-description {
             max-width: 560px;
-            margin: 0 auto 20px;
+            margin: 0 auto;
             color: var(--muted);
             font-size: 14px;
             line-height: 1.8;
         }
 
-        .clock-box {
-            display: inline-flex;
-            flex-direction: column;
-            gap: 5px;
-            padding: 11px 22px;
-            border: 1px solid rgba(56, 200, 255, 0.32);
-            border-radius: 12px;
-            background: rgba(0, 9, 20, 0.55);
-        }
-
-        #clock {
-            color: var(--blue-light);
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            font-variant-numeric: tabular-nums;
-        }
-
-        #dateText {
-            color: #c4e7ff;
-            font-size: 12px;
-        }
-
-        /* =========================
-           TIÊU ĐỀ KHU VỰC
-        ========================= */
+        /* =========================================
+           8. TIÊU ĐỀ CÁC KHU VỰC
+        ========================================= */
 
         .section {
-            margin-top: 28px;
+            margin-top: 29px;
         }
 
         .section-heading {
@@ -403,11 +468,11 @@
 
         .section-heading::before {
             content: "";
-            display: block;
             width: 5px;
             height: 24px;
+            flex-shrink: 0;
             border-radius: 8px;
-            background: var(--blue-light);
+            background: var(--light-blue);
             box-shadow: 0 0 12px var(--blue);
         }
 
@@ -415,12 +480,12 @@
             margin: -5px 0 15px;
             color: #a9cce6;
             font-size: 13px;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
-        /* =========================
-           THẺ NỘI DUNG
-        ========================= */
+        /* =========================================
+           9. THẺ ỨNG DỤNG
+        ========================================= */
 
         .card-grid {
             display: grid;
@@ -437,7 +502,7 @@
             overflow: hidden;
             border: 1px solid var(--border);
             border-radius: 17px;
-            background: var(--card);
+            background: var(--card-background);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
             transition:
                 transform 0.2s ease,
@@ -455,15 +520,14 @@
             background: linear-gradient(
                 90deg,
                 transparent,
-                var(--blue-light),
+                var(--light-blue),
                 transparent
             );
-            opacity: 0.8;
         }
 
         .item-card:hover {
             transform: translateY(-4px);
-            border-color: var(--blue-light);
+            border-color: var(--light-blue);
             box-shadow: 0 10px 30px rgba(0, 140, 255, 0.16);
         }
 
@@ -485,13 +549,7 @@
             border: 1px solid rgba(56, 200, 255, 0.38);
             border-radius: 13px;
             background: rgba(0, 120, 220, 0.17);
-            color: var(--blue-light);
-        }
-
-        .app-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            color: var(--light-blue);
         }
 
         .app-icon svg {
@@ -517,54 +575,7 @@
             margin-bottom: 17px;
             color: #c1d8e9;
             font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .download-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            min-height: 42px;
-            padding: 11px 12px;
-            border: 1px solid rgba(56, 200, 255, 0.6);
-            border-radius: 10px;
-            background: linear-gradient(110deg, #0065d8, #008cff);
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 900;
-            text-align: center;
-            cursor: pointer;
-            transition: filter 0.2s ease, transform 0.2s ease;
-        }
-
-        .download-button:hover {
-            filter: brightness(1.18);
-        }
-
-        .download-button:active {
-            transform: scale(0.98);
-        }
-
-        .download-button svg {
-            width: 17px;
-            height: 17px;
-            flex-shrink: 0;
-        }
-
-        .secondary-button {
-            background: rgba(0, 45, 83, 0.7);
-        }
-
-        .tiktok-button {
-            border-color: rgba(255, 255, 255, 0.45);
-            background: linear-gradient(110deg, #111111, #263c50);
-        }
-
-        .discord-button {
-            border-color: rgba(160, 150, 255, 0.55);
-            background: linear-gradient(110deg, #4752c4, #5865f2);
+            line-height: 1.8;
         }
 
         .platform-label {
@@ -580,15 +591,53 @@
             font-weight: 800;
         }
 
-        /* =========================
-           GIỚI THIỆU
-        ========================= */
+        .download-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            min-height: 43px;
+            padding: 11px 12px;
+            border: 1px solid rgba(56, 200, 255, 0.6);
+            border-radius: 10px;
+            background: linear-gradient(110deg, #0065d8, #008cff);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 900;
+            text-align: center;
+            cursor: pointer;
+            transition: filter 0.2s ease, transform 0.2s ease;
+        }
+
+        .download-button:hover {
+            filter: brightness(1.17);
+        }
+
+        .download-button:active {
+            transform: scale(0.98);
+        }
+
+        .download-button svg {
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
+        }
+
+        .discord-button {
+            border-color: rgba(160, 150, 255, 0.55);
+            background: linear-gradient(110deg, #4752c4, #5865f2);
+        }
+
+        /* =========================================
+           10. GIỚI THIỆU
+        ========================================= */
 
         .about-box {
             padding: 21px;
             border: 1px solid var(--border);
             border-radius: 16px;
-            background: rgba(2, 22, 40, 0.84);
+            background: rgba(2, 22, 40, 0.86);
         }
 
         .about-box p {
@@ -601,15 +650,19 @@
             margin-top: 10px;
         }
 
-        /* =========================
-           LIÊN HỆ
-        ========================= */
+        .about-box strong {
+            color: var(--light-blue);
+        }
+
+        /* =========================================
+           11. LIÊN HỆ
+        ========================================= */
 
         .contact-box {
             padding: 21px;
             border: 1px solid var(--border);
             border-radius: 16px;
-            background: rgba(2, 22, 40, 0.84);
+            background: rgba(2, 22, 40, 0.86);
             text-align: center;
         }
 
@@ -632,9 +685,9 @@
             min-width: 150px;
         }
 
-        /* =========================
-           CHÂN TRANG
-        ========================= */
+        /* =========================================
+           12. CHÂN TRANG
+        ========================================= */
 
         footer {
             margin-top: 30px;
@@ -647,29 +700,59 @@
         }
 
         footer strong {
-            color: var(--blue-light);
+            color: var(--light-blue);
         }
 
-        /* =========================
-           ĐIỆN THOẠI
-        ========================= */
+        /* =========================================
+           13. GIAO DIỆN ĐIỆN THOẠI
+        ========================================= */
 
         @media (max-width: 600px) {
-            #mainContent {
-                padding: 12px 11px 25px;
+            .hanging-clock {
+                left: 7px;
+                width: 90px;
+            }
+
+            .clock-chain {
+                height: 12px;
+            }
+
+            .clock-face {
+                width: 90px;
+                padding: 7px 3px;
+            }
+
+            #clock {
+                font-size: 12px;
+            }
+
+            #dateText {
+                font-size: 7px;
             }
 
             .topbar {
-                padding: 12px;
+                min-height: 58px;
+                padding: 10px 10px 10px 105px;
                 margin-bottom: 15px;
             }
 
             .brand {
-                font-size: 14px;
+                font-size: 12px;
+                letter-spacing: 0;
             }
 
             .status {
-                font-size: 10px;
+                gap: 4px;
+                font-size: 8px;
+            }
+
+            .status-dot {
+                width: 6px;
+                height: 6px;
+            }
+
+            #mainContent {
+                padding: 12px 11px 25px;
             }
 
             .profile {
@@ -678,8 +761,8 @@
 
             .avatar-wrap,
             .avatar {
-                width: 100px;
-                height: 100px;
+                width: 96px;
+                height: 96px;
             }
 
             .card-grid {
@@ -694,13 +777,32 @@
             .section-heading {
                 font-size: 18px;
             }
+        }
 
-            .clock-box {
-                padding: 10px 18px;
+        @media (max-width: 360px) {
+            .hanging-clock {
+                left: 5px;
+                width: 82px;
+            }
+
+            .clock-face {
+                width: 82px;
             }
 
             #clock {
-                font-size: 22px;
+                font-size: 11px;
+            }
+
+            .topbar {
+                padding-left: 94px;
+            }
+
+            .brand {
+                font-size: 11px;
+            }
+
+            .status {
+                font-size: 7px;
             }
         }
 
@@ -708,10 +810,13 @@
             *,
             *::before,
             *::after {
-                scroll-behavior: auto !important;
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
             }
         }
     </style>
@@ -719,68 +824,97 @@
 
 <body>
 
-    <!-- =========================
-         CANVAS MƯA XANH
-    ========================= -->
+    <!-- =========================================
+         HIỆU ỨNG MƯA XANH
+    ========================================= -->
 
     <canvas id="rainCanvas" aria-hidden="true"></canvas>
 
-    <!-- =========================
+    <!-- =========================================
          MÀN HÌNH LOADING
-         Trang chính chỉ hiện sau 100%
-    ========================= -->
+    ========================================= -->
 
     <div id="loadingScreen">
+
         <div class="loading-content">
 
             <img
                 src="avatar.png"
                 alt="Logo ZUNADAM"
-                class="loading-logo"
+                class="loading-avatar"
                 onerror="this.style.display='none'"
             >
 
-            <div class="loading-title">ZUNADAM MOD</div>
+            <h1 class="loading-title">ZUNADAM MOD</h1>
 
-            <div class="loading-subtitle">
+            <p class="loading-subtitle">
                 WEBSITE ĐANG KHỞI ĐỘNG
-            </div>
+            </p>
 
             <div
                 class="loading-track"
+                id="loadingProgress"
                 role="progressbar"
                 aria-label="Tiến trình tải trang"
                 aria-valuemin="0"
                 aria-valuemax="100"
                 aria-valuenow="0"
-                id="loadingProgress"
             >
                 <div id="loadingBar"></div>
             </div>
 
-            <div class="loading-info">
+            <div class="loading-information">
                 <span id="loadingStatus">Đang chuẩn bị...</span>
                 <span id="loadingPercent">0%</span>
             </div>
 
-            <div class="loading-note">
+            <p class="loading-note">
                 Vui lòng đợi trong giây lát
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- =========================================
+         ĐỒNG HỒ NHỎ TREO Ở GÓC TRÊN BÊN TRÁI
+    ========================================= -->
+
+    <aside class="hanging-clock" aria-label="Đồng hồ">
+
+        <div class="clock-chain"></div>
+        <div class="clock-hook"></div>
+
+        <div class="clock-face">
+
+            <div class="clock-label">
+                ZUNADAM
+            </div>
+
+            <div id="clock">00:00:00</div>
+
+            <div id="dateText">
+                Đang cập nhật...
             </div>
 
         </div>
-    </div>
 
-    <!-- =========================
-         NỘI DUNG CHÍNH
-         Ban đầu được ẩn
-    ========================= -->
+        <div class="clock-bottom"></div>
+
+    </aside>
+
+    <!-- =========================================
+         TRANG CHÍNH
+    ========================================= -->
 
     <main id="mainContent">
+
         <div class="container">
 
-            <!-- Thanh đầu trang -->
+            <!-- THANH ĐẦU TRANG -->
 
             <header class="topbar">
+
                 <a class="brand" href="#home">
                     <span>ZUNADAM</span> MOD
                 </a>
@@ -789,19 +923,22 @@
                     <span class="status-dot"></span>
                     WEBSITE ONLINE
                 </div>
+
             </header>
 
-            <!-- Hồ sơ -->
+            <!-- HỒ SƠ VÀ AVATAR -->
 
             <section class="profile" id="home">
 
                 <div class="avatar-wrap">
+
                     <img
                         src="avatar.png"
                         alt="Ảnh đại diện ZUNADAM"
                         class="avatar"
                         onerror="this.style.display='none'"
                     >
+
                 </div>
 
                 <h1>
@@ -810,20 +947,15 @@
 
                 <p class="profile-description">
                     Chào mừng bạn đến với website ZUNADAM MOD.
-                    Tại đây có các liên kết ứng dụng, trò chơi
-                    và thông tin liên hệ.
+                    Tại đây bạn có thể tìm thấy các mục ứng dụng,
+                    trò chơi và liên kết tải xuống.
                 </p>
-
-                <div class="clock-box">
-                    <div id="clock">00:00:00</div>
-                    <div id="dateText">Đang cập nhật ngày...</div>
-                </div>
 
             </section>
 
-            <!-- =========================
+            <!-- =====================================
                  KHU VỰC TẢI XUỐNG
-            ========================= -->
+            ===================================== -->
 
             <section class="section" id="downloads">
 
@@ -832,8 +964,8 @@
                 </h2>
 
                 <p class="section-description">
-                    Chọn mục tương ứng để mở liên kết.
-                    Hãy kiểm tra nguồn tải trước khi cài đặt ứng dụng.
+                    Chọn mục bạn muốn mở. Hãy kiểm tra nguồn
+                    tải và khả năng tương thích trước khi cài đặt.
                 </p>
 
                 <div class="card-grid">
@@ -841,6 +973,7 @@
                     <!-- ROBLOX -->
 
                     <article class="item-card">
+
                         <div class="card-top">
 
                             <div class="app-icon">
@@ -853,9 +986,7 @@
 
                             <div>
                                 <h3 class="card-title">Roblox</h3>
-                                <div class="card-subtitle">
-                                    GAME
-                                </div>
+                                <div class="card-subtitle">GAME</div>
                             </div>
 
                         </div>
@@ -870,22 +1001,15 @@
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <svg viewBox="0 0 24 24"
-                                 fill="none"
-                                 stroke="currentColor"
-                                 stroke-width="2"
-                                 aria-hidden="true">
-                                <path d="M12 3v12"/>
-                                <path d="m7 10 5 5 5-5"/>
-                                <path d="M5 17v4h14v-4"/>
-                            </svg>
                             MỞ LIÊN KẾT
                         </a>
+
                     </article>
 
                     <!-- AVO ESP -->
 
                     <article class="item-card">
+
                         <div class="card-top">
 
                             <div class="app-icon">
@@ -902,41 +1026,30 @@
 
                             <div>
                                 <h3 class="card-title">AVO Esp</h3>
-                                <div class="card-subtitle">
-                                    CÔNG CỤ
-                                </div>
+                                <div class="card-subtitle">CÔNG CỤ</div>
                             </div>
 
                         </div>
 
                         <p class="card-description">
                             Khu vực giới thiệu AVO Esp.
-                            Bạn cần thêm địa chỉ tải chính xác
-                            để nút này hoạt động.
+                            Bạn có thể thêm link tải thật vào nút bên dưới.
                         </p>
 
-                        <!-- THAY LINK_AVO_ESP BẰNG URL THẬT -->
                         <a
                             class="download-button"
                             href="#"
                             data-missing-link="AVO Esp"
                         >
-                            <svg viewBox="0 0 24 24"
-                                 fill="none"
-                                 stroke="currentColor"
-                                 stroke-width="2"
-                                 aria-hidden="true">
-                                <path d="M12 3v12"/>
-                                <path d="m7 10 5 5 5-5"/>
-                                <path d="M5 17v4h14v-4"/>
-                            </svg>
                             THÊM LINK TẢI
                         </a>
+
                     </article>
 
                     <!-- AOV MOD -->
 
                     <article class="item-card">
+
                         <div class="card-top">
 
                             <div class="app-icon">
@@ -952,40 +1065,30 @@
 
                             <div>
                                 <h3 class="card-title">AOV Mod</h3>
-                                <div class="card-subtitle">
-                                    NO HACK
-                                </div>
+                                <div class="card-subtitle">NO HACK</div>
                             </div>
 
                         </div>
 
                         <p class="card-description">
                             Khu vực giới thiệu AOV Mod (No Hack).
-                            Thêm liên kết tải của bạn vào nút bên dưới.
+                            Thêm URL tải thực tế của bạn để kích hoạt nút.
                         </p>
 
-                        <!-- THAY BẰNG URL AOV MOD THẬT -->
                         <a
                             class="download-button"
                             href="#"
                             data-missing-link="AOV Mod"
                         >
-                            <svg viewBox="0 0 24 24"
-                                 fill="none"
-                                 stroke="currentColor"
-                                 stroke-width="2"
-                                 aria-hidden="true">
-                                <path d="M12 3v12"/>
-                                <path d="m7 10 5 5 5-5"/>
-                                <path d="M5 17v4h14v-4"/>
-                            </svg>
                             THÊM LINK TẢI
                         </a>
+
                     </article>
 
                     <!-- AOV CHEAT -->
 
                     <article class="item-card">
+
                         <div class="card-top">
 
                             <div class="app-icon">
@@ -994,107 +1097,58 @@
                                      stroke="currentColor"
                                      stroke-width="1.8"
                                      aria-hidden="true">
-                                    <path d="M12 3v18M3 12h18"/>
                                     <circle cx="12" cy="12" r="9"/>
+                                    <path d="M12 7v10M7 12h10"/>
                                 </svg>
                             </div>
 
                             <div>
                                 <h3 class="card-title">AOV Cheat</h3>
-                                <div class="card-subtitle">
-                                    CÔNG CỤ
-                                </div>
+                                <div class="card-subtitle">CÔNG CỤ</div>
                             </div>
 
                         </div>
 
                         <p class="card-description">
                             Khu vực giới thiệu AOV Cheat.
-                            Bạn cần điền liên kết tải chính xác.
+                            Thêm URL tải thực tế của bạn vào nút.
                         </p>
 
-                        <!-- THAY BẰNG URL AOV CHEAT THẬT -->
                         <a
                             class="download-button"
                             href="#"
                             data-missing-link="AOV Cheat"
                         >
-                            <svg viewBox="0 0 24 24"
-                                 fill="none"
-                                 stroke="currentColor"
-                                 stroke-width="2"
-                                 aria-hidden="true">
-                                <path d="M12 3v12"/>
-                                <path d="m7 10 5 5 5-5"/>
-                                <path d="M5 17v4h14v-4"/>
-                            </svg>
                             THÊM LINK TẢI
                         </a>
+
                     </article>
 
                 </div>
+
             </section>
 
-            <!-- =========================
-                 TIKTOK VÀ GTIKTOK
-            ========================= -->
+            <!-- =====================================
+                 GTIKTOK
+                 ĐÃ BỎ TIKTOK CHÍNH THỨC
+            ===================================== -->
 
-            <section class="section" id="tiktok">
+            <section class="section" id="gtiktok">
 
                 <h2 class="section-heading">
-                    TIKTOK & GTIKTOK
+                    GTIKTOK
                 </h2>
 
                 <p class="section-description">
-                    Chọn phiên bản phù hợp với thiết bị của bạn.
+                    Chọn phiên bản GTiktok phù hợp với thiết bị.
                 </p>
 
                 <div class="card-grid">
 
-                    <!-- TIKTOK -->
+                    <!-- GTIKTOK APK -->
 
                     <article class="item-card">
-                        <div class="card-top">
 
-                            <div class="app-icon">
-                                <svg viewBox="0 0 24 24"
-                                     fill="currentColor"
-                                     aria-hidden="true">
-                                    <path d="M19.6 5.8a5.7 5.7 0 0 1-4-4.8h-4.1v14.1a2.8 2.8 0 1 1-2.8-2.8c.4 0 .8.1 1.1.2V8.3a7.3 7.3 0 1 0 5.8 7.1V8.2a9.7 9.7 0 0 0 4 1V5.8Z"/>
-                                </svg>
-                            </div>
-
-                            <div>
-                                <h3 class="card-title">TikTok</h3>
-                                <div class="card-subtitle">
-                                    MẠNG XÃ HỘI
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <p class="card-description">
-                            Mở trang TikTok chính thức.
-                        </p>
-
-                        <a
-                            class="download-button tiktok-button"
-                            href="https://www.tiktok.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <svg viewBox="0 0 24 24"
-                                 fill="currentColor"
-                                 aria-hidden="true">
-                                <path d="M19.6 5.8a5.7 5.7 0 0 1-4-4.8h-4.1v14.1a2.8 2.8 0 1 1-2.8-2.8c.4 0 .8.1 1.1.2V8.3a7.3 7.3 0 1 0 5.8 7.1V8.2a9.7 9.7 0 0 0 4 1V5.8Z"/>
-                            </svg>
-                            MỞ TIKTOK
-                        </a>
-                    </article>
-
-                    <!-- GTIKTOK ANDROID -->
-
-                    <article class="item-card">
                         <div class="card-top">
 
                             <div class="app-icon">
@@ -1110,9 +1164,7 @@
 
                             <div>
                                 <h3 class="card-title">GTiktok APK</h3>
-                                <div class="card-subtitle">
-                                    ANDROID
-                                </div>
+                                <div class="card-subtitle">ANDROID</div>
                             </div>
 
                         </div>
@@ -1122,8 +1174,8 @@
                         </span>
 
                         <p class="card-description">
-                            Mở liên kết GTiktok APK do bạn cung cấp.
-                            Kiểm tra nguồn tải trước khi cài đặt.
+                            Mở liên kết GTiktok APK bạn đã cung cấp.
+                            Hãy kiểm tra nguồn tải trước khi cài đặt.
                         </p>
 
                         <a
@@ -1132,22 +1184,15 @@
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <svg viewBox="0 0 24 24"
-                                 fill="none"
-                                 stroke="currentColor"
-                                 stroke-width="2"
-                                 aria-hidden="true">
-                                <path d="M12 3v12"/>
-                                <path d="m7 10 5 5 5-5"/>
-                                <path d="M5 17v4h14v-4"/>
-                            </svg>
                             TẢI GTIKTOK APK
                         </a>
+
                     </article>
 
                     <!-- GTIKTOK IOS -->
 
                     <article class="item-card">
+
                         <div class="card-top">
 
                             <div class="app-icon">
@@ -1163,9 +1208,7 @@
 
                             <div>
                                 <h3 class="card-title">GTiktok iOS</h3>
-                                <div class="card-subtitle">
-                                    IPHONE / IPAD
-                                </div>
+                                <div class="card-subtitle">IPHONE / IPAD</div>
                             </div>
 
                         </div>
@@ -1175,8 +1218,8 @@
                         </span>
 
                         <p class="card-description">
-                            Mở liên kết GTiktok iOS do bạn cung cấp.
-                            Hãy kiểm tra khả năng tương thích thiết bị.
+                            Mở liên kết GTiktok iOS bạn đã cung cấp.
+                            Kiểm tra khả năng tương thích với thiết bị.
                         </p>
 
                         <a
@@ -1185,25 +1228,18 @@
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <svg viewBox="0 0 24 24"
-                                 fill="none"
-                                 stroke="currentColor"
-                                 stroke-width="2"
-                                 aria-hidden="true">
-                                <path d="M12 3v12"/>
-                                <path d="m7 10 5 5 5-5"/>
-                                <path d="M5 17v4h14v-4"/>
-                            </svg>
                             MỞ GTIKTOK iOS
                         </a>
+
                     </article>
 
                 </div>
+
             </section>
 
-            <!-- =========================
+            <!-- =====================================
                  GIỚI THIỆU
-            ========================= -->
+            ===================================== -->
 
             <section class="section" id="about">
 
@@ -1212,29 +1248,33 @@
                 </h2>
 
                 <div class="about-box">
+
                     <p>
                         <strong>ZUNADAM MOD</strong> là website
-                        giới thiệu các liên kết ứng dụng, trò chơi
-                        và nội dung do chủ website cung cấp.
+                        giới thiệu các ứng dụng, trò chơi và
+                        những liên kết do chủ website cung cấp.
                     </p>
 
                     <p>
-                        Website được thiết kế với giao diện xanh biển,
-                        hiệu ứng mưa xanh và bố cục tương thích với
-                        máy tính, máy tính bảng và điện thoại.
+                        Website sử dụng giao diện xanh biển,
+                        hiệu ứng mưa xanh, đồng hồ treo nhỏ
+                        ở góc trên bên trái và bố cục phù hợp
+                        với máy tính lẫn điện thoại.
                     </p>
 
                     <p>
-                        Vui lòng kiểm tra nguồn và quyền truy cập
-                        của mỗi liên kết trước khi tải xuống.
+                        Các liên kết tải được cung cấp nhằm giúp
+                        người dùng truy cập đúng mục mong muốn.
+                        Hãy kiểm tra nguồn tải trước khi cài đặt.
                     </p>
+
                 </div>
 
             </section>
 
-            <!-- =========================
+            <!-- =====================================
                  LIÊN HỆ
-            ========================= -->
+            ===================================== -->
 
             <section class="section" id="contact">
 
@@ -1245,8 +1285,7 @@
                 <div class="contact-box">
 
                     <p>
-                        Theo dõi hoặc tham gia cộng đồng
-                        thông qua các liên kết bên dưới.
+                        Tham gia cộng đồng ZUNADAM qua Discord.
                     </p>
 
                     <div class="contact-actions">
@@ -1260,25 +1299,18 @@
                             MỞ DISCORD
                         </a>
 
-                        <a
-                            class="download-button tiktok-button"
-                            href="https://www.tiktok.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            MỞ TIKTOK
-                        </a>
-
                     </div>
+
                 </div>
 
             </section>
 
-            <!-- =========================
+            <!-- =====================================
                  CHÂN TRANG
-            ========================= -->
+            ===================================== -->
 
             <footer>
+
                 <div>
                     © <span id="year"></span>
                     <strong>ZUNADAM MOD</strong>
@@ -1289,24 +1321,25 @@
                 </div>
 
                 <div>
-                    Hãy sử dụng các liên kết một cách có trách nhiệm.
+                    Cảm ơn bạn đã ghé thăm website.
                 </div>
+
             </footer>
 
         </div>
+
     </main>
 
-    <!-- =========================
+    <!-- =========================================
          JAVASCRIPT
-    ========================= -->
+    ========================================= -->
 
     <script>
         "use strict";
 
-        /* =========================
-           LOADING 0% → 100%
-           Không hiện trang chính trước khi hoàn tất
-        ========================= */
+        /* =========================================
+           1. LOADING TỪ 0% ĐẾN 100%
+        ========================================= */
 
         const loadingScreen =
             document.getElementById("loadingScreen");
@@ -1339,35 +1372,37 @@
         let loadingFinished = false;
 
         function updateLoading() {
-            loadingBar.style.width = progress + "%";
-            loadingPercent.textContent = progress + "%";
+            const value = Math.floor(progress);
+
+            loadingBar.style.width = value + "%";
+            loadingPercent.textContent = value + "%";
 
             loadingProgress.setAttribute(
                 "aria-valuenow",
-                String(progress)
+                String(value)
             );
 
             let currentMessage = loadingMessages[0];
 
             for (const item of loadingMessages) {
-                if (progress >= item.percent) {
+                if (value >= item.percent) {
                     currentMessage = item;
                 }
             }
 
-            loadingStatus.textContent = currentMessage.message;
+            loadingStatus.textContent =
+                currentMessage.message;
         }
 
         function finishLoading() {
-            if (loadingFinished) return;
+            if (loadingFinished) {
+                return;
+            }
 
             loadingFinished = true;
             progress = 100;
             updateLoading();
 
-            /*
-             * Chỉ mở trang chính sau khi loading đạt 100%.
-             */
             window.setTimeout(function () {
                 mainContent.classList.add("visible");
                 loadingScreen.classList.add("finished");
@@ -1382,11 +1417,7 @@
         function runLoading() {
             updateLoading();
 
-            const loadingTimer = window.setInterval(function () {
-                /*
-                 * Tăng tiến trình theo từng bước để hiển thị
-                 * từ 0% đến 100%, không nhảy thẳng đến 100%.
-                 */
+            const timer = window.setInterval(function () {
                 if (progress < 30) {
                     progress += 1;
                 } else if (progress < 70) {
@@ -1400,29 +1431,29 @@
                 if (progress >= 100) {
                     progress = 100;
                     updateLoading();
-                    window.clearInterval(loadingTimer);
+
+                    window.clearInterval(timer);
                     finishLoading();
                     return;
                 }
 
-                progress = Math.min(100, progress);
                 updateLoading();
 
             }, 35);
         }
 
-        /*
-         * Bắt đầu loading khi trình duyệt chạy script.
-         */
         runLoading();
 
 
-        /* =========================
-           ĐỒNG HỒ
-        ========================= */
+        /* =========================================
+           2. ĐỒNG HỒ VÀ NGÀY HIỆN TẠI
+        ========================================= */
 
-        const clockElement = document.getElementById("clock");
-        const dateElement = document.getElementById("dateText");
+        const clockElement =
+            document.getElementById("clock");
+
+        const dateElement =
+            document.getElementById("dateText");
 
         function updateClock() {
             const now = new Date();
@@ -1437,7 +1468,6 @@
 
             dateElement.textContent =
                 now.toLocaleDateString("vi-VN", {
-                    weekday: "long",
                     day: "2-digit",
                     month: "2-digit",
                     year: "numeric"
@@ -1445,22 +1475,25 @@
         }
 
         updateClock();
+
         window.setInterval(updateClock, 1000);
 
 
-        /* =========================
-           NĂM HIỆN TẠI
-        ========================= */
+        /* =========================================
+           3. NĂM HIỆN TẠI
+        ========================================= */
 
         document.getElementById("year").textContent =
             new Date().getFullYear();
 
 
-        /* =========================
-           HIỆU ỨNG MƯA XANH
-        ========================= */
+        /* =========================================
+           4. HIỆU ỨNG MƯA XANH
+        ========================================= */
 
-        const canvas = document.getElementById("rainCanvas");
+        const canvas =
+            document.getElementById("rainCanvas");
+
         const ctx = canvas.getContext("2d");
 
         let canvasWidth = 0;
@@ -1479,16 +1512,17 @@
             canvasWidth = window.innerWidth;
             canvasHeight = window.innerHeight;
 
-            canvas.width = Math.floor(
-                canvasWidth * pixelRatio
-            );
+            canvas.width =
+                Math.floor(canvasWidth * pixelRatio);
 
-            canvas.height = Math.floor(
-                canvasHeight * pixelRatio
-            );
+            canvas.height =
+                Math.floor(canvasHeight * pixelRatio);
 
-            canvas.style.width = canvasWidth + "px";
-            canvas.style.height = canvasHeight + "px";
+            canvas.style.width =
+                canvasWidth + "px";
+
+            canvas.style.height =
+                canvasHeight + "px";
 
             ctx.setTransform(
                 pixelRatio,
@@ -1500,6 +1534,7 @@
             );
 
             const columnWidth = 18;
+
             const columnCount = Math.ceil(
                 canvasWidth / columnWidth
             );
@@ -1529,11 +1564,13 @@
             const columnWidth = 18;
 
             for (let i = 0; i < rainDrops.length; i++) {
-                const character = rainCharacters.charAt(
-                    Math.floor(
-                        Math.random() * rainCharacters.length
-                    )
-                );
+                const character =
+                    rainCharacters.charAt(
+                        Math.floor(
+                            Math.random() *
+                            rainCharacters.length
+                        )
+                    );
 
                 const x = i * columnWidth;
                 const y = rainDrops[i] * columnWidth;
@@ -1546,8 +1583,8 @@
                 ) {
                     rainDrops[i] = 0;
                 } else {
-                    rainDrops[i] += 0.35 +
-                        Math.random() * 0.5;
+                    rainDrops[i] +=
+                        0.35 + Math.random() * 0.5;
                 }
             }
 
@@ -1563,25 +1600,34 @@
         );
 
 
-        /* =========================
-           LINK CHƯA ĐƯỢC CUNG CẤP
-        ========================= */
+        /* =========================================
+           5. LINK CHƯA ĐƯỢC CUNG CẤP
+        ========================================= */
 
-        document.querySelectorAll("[data-missing-link]")
+        document
+            .querySelectorAll("[data-missing-link]")
             .forEach(function (link) {
-                link.addEventListener("click", function (event) {
-                    event.preventDefault();
 
-                    const itemName =
-                        link.getAttribute("data-missing-link");
+                link.addEventListener(
+                    "click",
+                    function (event) {
+                        event.preventDefault();
 
-                    alert(
-                        "Bạn chưa thêm link tải cho " +
-                        itemName +
-                        ". Hãy thay href=\"#\" bằng URL tải thật."
-                    );
-                });
+                        const name =
+                            link.getAttribute(
+                                "data-missing-link"
+                            );
+
+                        alert(
+                            "Bạn chưa thêm link tải cho " +
+                            name +
+                            ". Hãy thay href=\"#\" bằng URL tải thật."
+                        );
+                    }
+                );
+
             });
+
     </script>
 
 </body>
