@@ -1,108 +1,29 @@
 
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color"
-          content="#008cff">
-
-    <!-- =========================
-         SEO - ZUNADAM
-         ========================= -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#008cff">
 
     <title>ZUNADAM MOD - Zunadam</title>
+    <meta name="description" content="ZUNADAM MOD - Roblox, MOD, tools và nội dung iOS.">
+    <meta name="keywords" content="Zunadam, Roblox, MOD, iOS, GTiktok, AVO Esp">
+    <meta name="author" content="Zunadam">
+    <meta name="robots" content="index, follow">
 
-    <meta
-        name="description"
-        content="ZUNADAM MOD - Zunadam. Website chính thức cập nhật Roblox, MOD và nội dung iOS mới nhất."
-    >
+    <!-- Thay bằng tên miền chính thức khi có -->
+    <!-- <link rel="canonical" href="https://TEN-MIEN-CUA-BAN/"> -->
 
-    <meta
-        name="keywords"
-        content="zunadam, ZUNADAM MOD, Zunadam Mod, Roblox, MOD, iOS, AVO Esp"
-    >
+    <link rel="icon" type="image/png" href="avatar.png">
 
-    <meta
-        name="author"
-        content="Zunadam"
-    >
-
-    <meta
-        name="robots"
-        content="index, follow"
-    >
-
-    <link
-        rel="canonical"
-        href="https://Zumadam
-    >
-
-
-    <!-- FAVICON -->
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="avatar.png"
-    >
-
-
-    <!-- OPEN GRAPH -->
-
-    <meta
-        property="og:type"
-        content="website"
-    >
-
-    <meta
-        property="og:title"
-        content="ZUNADAM MOD - Zunadam"
-    >
-
-    <meta
-        property="og:description"
-        content="Website chính thức của ZUNADAM MOD."
-    >
-
-    <meta
-        property="og:url"
-        content="https://Zumadam
-    >
-
-    <meta
-        property="og:site_name"
-        content="ZUNADAM MOD"
-    >
-
-    <meta
-        property="og:image"
-        content="avatar.png"
-    >
-
-
-    <!-- STRUCTURED DATA -->
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "ZUNADAM MOD",
-        "alternateName": "Zunadam",
-        "url": "https://Zumadam
-        "description": "Website chính thức của ZUNADAM MOD.",
-        "inLanguage": "vi-VN"
-    }
-    </script>
-
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ZUNADAM MOD - Zunadam">
+    <meta property="og:description" content="Website ZUNADAM MOD.">
+    <meta property="og:site_name" content="ZUNADAM MOD">
+    <meta property="og:image" content="avatar.png">
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -114,1228 +35,632 @@
         }
 
         body {
-
             min-height: 100vh;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            font-family: Arial, Helvetica, sans-serif;
             color: #fff;
-
-            background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    #07547f 0%,
-                    #04344f 28%,
-                    #021b2a 58%,
-                    #000910 100%
-                );
-
+            background: radial-gradient(
+                circle at 50% 0%,
+                #07547f 0%,
+                #04344f 28%,
+                #021b2a 58%,
+                #000910 100%
+            );
             overflow-x: hidden;
-
         }
 
-
-        /* =========================
-           LOADING
-           ========================= */
+        /* LOADING */
 
         #loading {
-
             position: fixed;
-
             inset: 0;
-
             z-index: 99999;
-
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
             justify-content: center;
-
             background: #01090e;
-
-            transition:
-                opacity .6s ease,
-                visibility .6s ease;
-
+            transition: opacity .6s ease, visibility .6s ease;
         }
-
 
         #loading.hide {
-
             opacity: 0;
-
             visibility: hidden;
-
+            pointer-events: none;
         }
-
 
         .loading-title {
-
             margin-bottom: 20px;
-
             text-align: center;
-
-            font-size:
-                clamp(
-                    25px,
-                    7vw,
-                    42px
-                );
-
+            font-size: clamp(25px, 7vw, 42px);
             font-weight: 900;
-
             letter-spacing: 4px;
-
-            text-shadow:
-                0 0 25px
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .8
-                );
-
+            text-shadow: 0 0 25px rgba(0,174,255,.8);
         }
-
 
         .loading-percent {
-
             margin-bottom: 12px;
-
             color: #7ad9ff;
-
             font-size: 13px;
-
             letter-spacing: 2px;
-
         }
-
 
         .loading-box {
-
-            width:
-                min(
-                    430px,
-                    78vw
-                );
-
+            width: min(430px, 78vw);
             height: 7px;
-
             overflow: hidden;
-
             border-radius: 20px;
-
-            background:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    .10
-                );
-
-            border:
-                1px solid
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .25
-                );
-
+            background: rgba(255,255,255,.10);
+            border: 1px solid rgba(0,174,255,.25);
         }
-
 
         .loading-bar {
-
             width: 0%;
-
             height: 100%;
-
             border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #0077ff,
-                    #00c8ff,
-                    #ffffff
-                );
-
-            box-shadow:
-                0 0 18px
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .9
-                );
-
-            transition:
-                width .05s linear;
-
+            background: linear-gradient(90deg,#0077ff,#00c8ff,#fff);
+            box-shadow: 0 0 18px rgba(0,174,255,.9);
+            transition: width .05s linear;
         }
 
-
-        /* =========================
-           MƯA XANH BIỂN
-           ========================= */
+        /* MƯA XANH */
 
         #rain {
-
             position: fixed;
-
             inset: 0;
-
             z-index: 1;
-
             overflow: hidden;
-
             pointer-events: none;
-
         }
-
 
         .rain-drop {
-
             position: absolute;
-
             top: -100px;
-
             width: 1px;
-
             border-radius: 10px;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    transparent,
-                    rgba(
-                        0,
-                        174,
-                        255,
-                        .95
-                    )
-                );
-
-            animation:
-                rainFall
-                linear
-                infinite;
-
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(0,174,255,.95)
+            );
+            animation: rainFall linear infinite;
         }
-
 
         @keyframes rainFall {
-
-            from {
-                transform:
-                    translateY(-100px);
-            }
-
-            to {
-                transform:
-                    translateY(115vh);
-            }
-
+            from { transform: translateY(-100px); }
+            to { transform: translateY(115vh); }
         }
 
-
-        /* =========================
-           ĐỒNG HỒ
-           ========================= */
+        /* ĐỒNG HỒ */
 
         .clock {
-
             position: fixed;
-
             top: 13px;
-
             left: 13px;
-
             z-index: 100;
-
             min-width: 112px;
-
-            padding:
-                8px 11px;
-
+            padding: 8px 11px;
             border-radius: 10px;
-
-            background:
-                rgba(
-                    1,
-                    14,
-                    23,
-                    .80
-                );
-
-            border:
-                1px solid
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .30
-                );
-
-            backdrop-filter:
-                blur(10px);
-
-            box-shadow:
-                0 0 20px
-                rgba(
-                    0,
-                    150,
-                    255,
-                    .12
-                );
-
+            background: rgba(1,14,23,.80);
+            border: 1px solid rgba(0,174,255,.30);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0,150,255,.12);
         }
-
 
         .clock-time {
-
             font-size: 17px;
-
             font-weight: bold;
-
             letter-spacing: 1px;
-
         }
-
 
         .clock-date {
-
             margin-top: 3px;
-
             font-size: 9px;
-
             color: #74cfff;
-
         }
 
-
-        /* =========================
-           TRANG CHÍNH
-           ========================= */
+        /* TRANG CHÍNH */
 
         .page {
-
             position: relative;
-
             z-index: 5;
-
-            width:
-                min(
-                    850px,
-                    92%
-                );
-
+            width: min(850px, 92%);
             margin: auto;
-
-            padding:
-                90px 0 60px;
-
+            padding: 90px 0 60px;
         }
 
-
-        /* =========================
-           AVATAR
-           ========================= */
+        /* AVATAR */
 
         .profile {
-
             text-align: center;
-
             margin-bottom: 25px;
-
         }
-
 
         .avatar-container {
-
             width: 94px;
-
             height: 94px;
-
-            margin:
-                0 auto 12px;
-
+            margin: 0 auto 12px;
             padding: 3px;
-
             border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #0077ff,
-                    #00c8ff,
-                    #ffffff,
-                    #008cff
-                );
-
-            box-shadow:
-                0 0 25px
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .55
-                );
-
-            animation:
-                avatarGlow
-                2.5s
-                ease-in-out
-                infinite;
-
+            background: linear-gradient(
+                135deg,#0077ff,#00c8ff,#fff,#008cff
+            );
+            box-shadow: 0 0 25px rgba(0,174,255,.55);
+            animation: avatarGlow 2.5s ease-in-out infinite;
         }
-
 
         .avatar {
-
             width: 100%;
-
             height: 100%;
-
             display: block;
-
             object-fit: cover;
-
             border-radius: 50%;
-
-            border:
-                3px solid
-                #02131e;
-
+            border: 3px solid #02131e;
         }
-
 
         @keyframes avatarGlow {
-
-            0% {
-                box-shadow:
-                    0 0 12px
-                    rgba(
-                        0,
-                        174,
-                        255,
-                        .35
-                    );
-            }
-
-            50% {
-                box-shadow:
-                    0 0 30px
-                    rgba(
-                        0,
-                        174,
-                        255,
-                        .80
-                    );
-            }
-
-            100% {
-                box-shadow:
-                    0 0 12px
-                    rgba(
-                        0,
-                        174,
-                        255,
-                        .35
-                    );
-            }
-
+            0%,100% { box-shadow: 0 0 12px rgba(0,174,255,.35); }
+            50% { box-shadow: 0 0 30px rgba(0,174,255,.80); }
         }
-
 
         .profile-name {
-
             font-size: 19px;
-
             font-weight: 900;
-
             letter-spacing: 2px;
-
         }
-
 
         .profile-username {
-
             margin-top: 4px;
-
             font-size: 11px;
-
             color: #76d4ff;
-
         }
 
-
-        /* =========================
-           HEADER
-           ========================= */
+        /* HEADER */
 
         header {
-
             text-align: center;
-
             margin-bottom: 28px;
-
         }
-
 
         .logo {
-
-            font-size:
-                clamp(
-                    35px,
-                    8vw,
-                    64px
-                );
-
+            font-size: clamp(35px,8vw,64px);
             font-weight: 900;
-
             letter-spacing: 4px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffffff,
-                    #00baff,
-                    #ffffff
-                );
-
-            -webkit-background-clip:
-                text;
-
-            -webkit-text-fill-color:
-                transparent;
-
+            background: linear-gradient(90deg,#fff,#00baff,#fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
 
         .subtitle {
-
             margin-top: 10px;
-
             color: #91ddfa;
-
             font-size: 13px;
-
             letter-spacing: 2px;
-
         }
-
 
         .header-line {
-
             width: 90px;
-
             height: 3px;
-
-            margin:
-                18px auto;
-
+            margin: 18px auto;
             border-radius: 20px;
-
             background: #00aaff;
-
-            box-shadow:
-                0 0 15px
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .8
-                );
-
+            box-shadow: 0 0 15px rgba(0,174,255,.8);
         }
 
-
-        /* =========================
-           THỐNG KÊ
-           ========================= */
+        /* THỐNG KÊ */
 
         .stats {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(
-                    3,
-                    1fr
-                );
-
+            grid-template-columns: repeat(3,1fr);
             gap: 10px;
-
             margin-bottom: 20px;
-
         }
-
 
         .stat {
-
-            padding:
-                13px 8px;
-
+            padding: 13px 8px;
             text-align: center;
-
-            border:
-                1px solid
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .16
-                );
-
+            border: 1px solid rgba(0,174,255,.16);
             border-radius: 12px;
-
-            background:
-                rgba(
-                    3,
-                    23,
-                    36,
-                    .70
-                );
-
-            backdrop-filter:
-                blur(8px);
-
+            background: rgba(3,23,36,.70);
+            backdrop-filter: blur(8px);
         }
-
 
         .stat-number {
-
             font-size: 17px;
-
             font-weight: 900;
-
         }
-
 
         .stat-label {
-
             margin-top: 4px;
-
             font-size: 9px;
-
             color: #71b6d2;
-
         }
 
-
-        /* =========================
-           MOD
-           ========================= */
+        /* DANH SÁCH MOD */
 
         .mods {
-
             display: flex;
-
             flex-direction: column;
-
             gap: 14px;
-
         }
-
 
         .mod-card {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             min-height: 86px;
-
-            padding:
-                15px 19px;
-
+            padding: 15px 19px;
             text-decoration: none;
-
-            color: #ffffff;
-
-            border:
-                1px solid
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .18
-                );
-
+            color: #fff;
+            border: 1px solid rgba(0,174,255,.18);
             border-radius: 14px;
-
-            background:
-                rgba(
-                    3,
-                    23,
-                    36,
-                    .84
-                );
-
-            backdrop-filter:
-                blur(10px);
-
-            transition:
-                .25s ease;
-
+            background: rgba(3,23,36,.84);
+            backdrop-filter: blur(10px);
+            transition: .25s ease;
+            cursor: pointer;
         }
-
 
         .mod-card:hover {
-
-            transform:
-                translateX(6px);
-
-            border-color:
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .75
-                );
-
-            background:
-                rgba(
-                    5,
-                    37,
-                    57,
-                    .94
-                );
-
-            box-shadow:
-                0 0 25px
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .14
-                );
-
+            transform: translateX(6px);
+            border-color: rgba(0,174,255,.75);
+            background: rgba(5,37,57,.94);
+            box-shadow: 0 0 25px rgba(0,174,255,.14);
         }
-
 
         .mod-left {
-
             display: flex;
-
             align-items: center;
-
             gap: 14px;
-
         }
-
 
         .mod-icon {
-
             width: 45px;
-
             height: 45px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             flex-shrink: 0;
-
             border-radius: 12px;
-
-            background:
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .10
-                );
-
-            border:
-                1px solid
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .25
-                );
-
+            background: rgba(0,174,255,.10);
+            border: 1px solid rgba(0,174,255,.25);
             font-size: 21px;
-
         }
-
 
         .mod-name {
-
             font-size: 16px;
-
             font-weight: 800;
-
         }
-
 
         .mod-info {
-
             display: flex;
-
             flex-wrap: wrap;
-
             gap: 7px;
-
             margin-top: 6px;
-
         }
-
 
         .tag {
-
-            padding:
-                3px 7px;
-
+            padding: 3px 7px;
             border-radius: 5px;
-
             font-size: 9px;
-
             color: #9bddf5;
-
-            background:
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .09
-                );
-
-            border:
-                1px solid
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .13
-                );
-
+            background: rgba(0,174,255,.09);
+            border: 1px solid rgba(0,174,255,.13);
         }
-
 
         .arrow {
-
             margin-left: 10px;
-
             color: #00aaff;
-
             font-size: 24px;
-
         }
 
+        /* BẢNG CHỌN GTIKTOK */
 
-        /* =========================
-           DISCORD
-           ========================= */
+        .gtiktok-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0,7,14,.82);
+            backdrop-filter: blur(8px);
+        }
+
+        .gtiktok-modal.show {
+            display: flex;
+        }
+
+        .gtiktok-panel {
+            width: min(400px,100%);
+            padding: 24px;
+            border: 1px solid rgba(0,174,255,.5);
+            border-radius: 20px;
+            background: linear-gradient(145deg,#052c42,#010d16);
+            box-shadow: 0 0 35px rgba(0,174,255,.2);
+            animation: gtiktokAppear .25s ease;
+        }
+
+        @keyframes gtiktokAppear {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .gtiktok-heading {
+            text-align: center;
+            font-size: 23px;
+            font-weight: 900;
+        }
+
+        .gtiktok-description {
+            margin: 9px 0 22px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #91ddfa;
+        }
+
+        .gtiktok-option {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-top: 12px;
+            padding: 15px;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid rgba(0,174,255,.25);
+            border-radius: 13px;
+            background: rgba(0,174,255,.07);
+            transition: .2s ease;
+        }
+
+        .gtiktok-option:hover {
+            border-color: #00c8ff;
+            background: rgba(0,174,255,.16);
+            transform: translateY(-2px);
+        }
+
+        .gtiktok-option-icon {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border-radius: 11px;
+            background: rgba(0,174,255,.12);
+            font-size: 23px;
+        }
+
+        .gtiktok-option-name {
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .gtiktok-option-info {
+            margin-top: 5px;
+            font-size: 11px;
+            line-height: 1.5;
+            color: #91ddfa;
+        }
+
+        .gtiktok-close {
+            width: 100%;
+            margin-top: 18px;
+            padding: 12px;
+            border: 1px solid rgba(0,174,255,.25);
+            border-radius: 10px;
+            background: transparent;
+            color: #91ddfa;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .gtiktok-close:hover {
+            background: rgba(0,174,255,.1);
+        }
+
+        /* DISCORD */
 
         .discord {
-
             display: block;
-
             margin-top: 28px;
-
             padding: 17px;
-
             text-align: center;
-
             text-decoration: none;
-
-            color: #ffffff;
-
+            color: #fff;
             font-size: 15px;
-
             font-weight: bold;
-
             border-radius: 14px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #5865f2,
-                    #4752c4
-                );
-
-            box-shadow:
-                0 10px 30px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    .25
-                );
-
-            transition:
-                .2s ease;
-
+            background: linear-gradient(135deg,#5865f2,#4752c4);
+            box-shadow: 0 10px 30px rgba(0,0,0,.25);
+            transition: .2s ease;
         }
-
 
         .discord:hover {
-
-            transform:
-                translateY(-3px);
-
-            filter:
-                brightness(1.1);
-
+            transform: translateY(-3px);
+            filter: brightness(1.1);
         }
-
 
         .discord-small {
-
             display: block;
-
             margin-top: 5px;
-
             font-size: 10px;
-
             font-weight: normal;
-
             opacity: .8;
-
         }
 
-
-        /* =========================
-           FOOTER
-           ========================= */
+        /* FOOTER */
 
         footer {
-
             margin-top: 45px;
-
             padding-top: 20px;
-
             text-align: center;
-
             font-size: 11px;
-
             line-height: 1.8;
-
             color: #547383;
-
-            border-top:
-                1px solid
-                rgba(
-                    0,
-                    174,
-                    255,
-                    .10
-                );
-
+            border-top: 1px solid rgba(0,174,255,.10);
         }
 
+        /* MOBILE */
 
-        /* =========================
-           MOBILE
-           ========================= */
-
-        @media (max-width: 600px) {
-
+        @media (max-width:600px) {
             .page {
-
                 width: 92%;
-
                 padding-top: 88px;
-
             }
-
 
             .clock {
-
                 top: 8px;
-
                 left: 8px;
-
                 min-width: 105px;
-
-                padding:
-                    7px 9px;
-
+                padding: 7px 9px;
             }
-
 
             .clock-time {
-
                 font-size: 15px;
-
             }
-
 
             .clock-date {
-
                 font-size: 8px;
-
             }
-
 
             .avatar-container {
-
                 width: 82px;
-
                 height: 82px;
-
             }
-
 
             .stats {
-
                 gap: 7px;
-
             }
-
 
             .stat {
-
-                padding:
-                    11px 5px;
-
+                padding: 11px 5px;
             }
-
 
             .stat-number {
-
                 font-size: 14px;
-
             }
-
 
             .stat-label {
-
                 font-size: 8px;
-
             }
-
 
             .mod-card {
-
                 min-height: 76px;
-
-                padding:
-                    13px;
-
+                padding: 13px;
             }
-
 
             .mod-icon {
-
                 width: 40px;
-
                 height: 40px;
-
                 font-size: 18px;
-
             }
-
 
             .mod-name {
-
                 font-size: 14px;
-
             }
-
 
             .tag {
-
                 font-size: 8px;
-
             }
-
 
             .arrow {
-
                 font-size: 20px;
-
             }
 
+            .gtiktok-panel {
+                padding: 20px;
+            }
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
-    <!-- =========================
-         LOADING
-         ========================= -->
+    <!-- LOADING -->
 
     <div id="loading">
+        <div class="loading-title">ZUNADAM MOD</div>
 
-        <div class="loading-title">
-            ZUNADAM MOD
-        </div>
-
-        <div
-            class="loading-percent"
-            id="loadingPercent"
-        >
+        <div class="loading-percent" id="loadingPercent">
             0%
         </div>
 
         <div class="loading-box">
-
-            <div
-                class="loading-bar"
-                id="loadingBar"
-            ></div>
-
+            <div class="loading-bar" id="loadingBar"></div>
         </div>
-
     </div>
 
-
-    <!-- =========================
-         MƯA XANH
-         ========================= -->
+    <!-- MƯA XANH -->
 
     <div id="rain"></div>
 
-
-    <!-- =========================
-         ĐỒNG HỒ
-         ========================= -->
+    <!-- ĐỒNG HỒ -->
 
     <div class="clock">
-
-        <div
-            class="clock-time"
-            id="clockTime"
-        >
-            00:00:00
-        </div>
-
-        <div
-            class="clock-date"
-            id="clockDate"
-        >
-            Đang tải...
-        </div>
-
+        <div class="clock-time" id="clockTime">00:00:00</div>
+        <div class="clock-date" id="clockDate">Đang tải...</div>
     </div>
 
-
-    <!-- =========================
-         MAIN
-         ========================= -->
+    <!-- TRANG CHÍNH -->
 
     <main class="page">
-
 
         <!-- AVATAR -->
 
         <div class="profile">
-
             <div class="avatar-container">
-
                 <img
                     src="avatar.png"
                     alt="Avatar Zunadam"
                     class="avatar"
                 >
-
             </div>
 
-            <div class="profile-name">
-                ZUNADAM
-            </div>
-
-            <div class="profile-username">
-                @Zunadam
-            </div>
-
+            <div class="profile-name">ZUNADAM</div>
+            <div class="profile-username">@Zunadam</div>
         </div>
-
 
         <!-- HEADER -->
 
         <header>
-
-            <div class="logo">
-                ZUNADAM
-            </div>
-
-            <div class="subtitle">
-                MOD • TOOLS • DOWNLOAD
-            </div>
-
+            <div class="logo">ZUNADAM</div>
+            <div class="subtitle">MOD • TOOLS • DOWNLOAD</div>
             <div class="header-line"></div>
-
         </header>
-
 
         <!-- THỐNG KÊ -->
 
         <section class="stats">
 
-
             <div class="stat">
-
-                <div
-                    class="stat-number"
-                    id="totalDownloads"
-                >
+                <div class="stat-number" id="totalDownloads">
                     12,458
                 </div>
-
-                <div class="stat-label">
-                    LƯỢT TẢI
-                </div>
-
+                <div class="stat-label">LƯỢT TẢI</div>
             </div>
-
 
             <div class="stat">
-
-                <div class="stat-number">
-                    02
-                </div>
-
-                <div class="stat-label">
-                    MOD
-                </div>
-
+                <div class="stat-number">03</div>
+                <div class="stat-label">MOD</div>
             </div>
-
 
             <div class="stat">
-
-                <div class="stat-number">
-                    iOS
-                </div>
-
-                <div class="stat-label">
-                    NỀN TẢNG
-                </div>
-
+                <div class="stat-number">iOS</div>
+                <div class="stat-label">NỀN TẢNG</div>
             </div>
-
 
         </section>
 
-
-        <!-- =========================
-             DANH SÁCH MOD
-             ========================= -->
+        <!-- DANH SÁCH MOD -->
 
         <section class="mods">
-
 
             <!-- ROBLOX -->
 
@@ -1345,196 +670,186 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
-
                 <div class="mod-left">
-
-                    <div class="mod-icon">
-                        🎮
-                    </div>
+                    <div class="mod-icon">🎮</div>
 
                     <div>
-
-                        <div class="mod-name">
-                            Roblox
-                        </div>
+                        <div class="mod-name">Roblox</div>
 
                         <div class="mod-info">
-
-                            <span class="tag">
-                                iOS
-                            </span>
-
-                            <span class="tag">
-                                ⬇ 12,458 lượt tải
-                            </span>
-
-                            <span class="tag">
-                                Cập nhật mới
-                            </span>
-
+                            <span class="tag">iOS</span>
+                            <span class="tag">⬇ 12,458 lượt tải</span>
+                            <span class="tag">Cập nhật mới</span>
                         </div>
-
                     </div>
-
                 </div>
 
-                <div class="arrow">
-                    →
-                </div>
-
+                <div class="arrow">→</div>
             </a>
 
+            <!-- GTIKTOK -->
+
+            <a
+                class="mod-card"
+                href="#"
+                id="gtiktok"
+                aria-haspopup="dialog"
+                aria-controls="gtiktokModal"
+            >
+                <div class="mod-left">
+                    <div class="mod-icon">🎵</div>
+
+                    <div>
+                        <div class="mod-name">GTiktok</div>
+
+                        <div class="mod-info">
+                            <span class="tag">Android</span>
+                            <span class="tag">iOS</span>
+                            <span class="tag">Chọn phiên bản</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arrow">→</div>
+            </a>
 
             <!-- AVO ESP -->
 
-            <a
-                class="mod-card"
-                href="#"
-                id="avoEsp"
-            >
-
+            <a class="mod-card" href="#" id="avoEsp">
                 <div class="mod-left">
-
-                    <div class="mod-icon">
-                        👁️
-                    </div>
+                    <div class="mod-icon">👁️</div>
 
                     <div>
-
-                        <div class="mod-name">
-                            AVO Esp
-                        </div>
+                        <div class="mod-name">AVO Esp</div>
 
                         <div class="mod-info">
-
-                            <span class="tag"
-                                  id="avoEspDownloads">
+                            <span class="tag" id="avoEspDownloads">
                                 ⬇ 0 lượt tải
                             </span>
-
-                            <span class="tag">
-                                iOS
-                            </span>
-
-                            <span class="tag">
-                                Đang được cập nhật
-                            </span>
-
+                            <span class="tag">iOS</span>
+                            <span class="tag">Đang được cập nhật</span>
                         </div>
-
                     </div>
-
                 </div>
 
-                <div class="arrow">
-                    →
-                </div>
-
+                <div class="arrow">→</div>
             </a>
 
+            <!-- AOV MOD -->
 
-            <!-- AOV MOD (NO HACK) -->
-
-            <a
-                class="mod-card"
-                href="#"
-                id="aovMod"
-            >
-
+            <a class="mod-card" href="#" id="aovMod">
                 <div class="mod-left">
-
-                    <div class="mod-icon">
-                        🛡️
-                    </div>
+                    <div class="mod-icon">🛡️</div>
 
                     <div>
-
-                        <div class="mod-name">
-                            Aov Mod (No Hack)
-                        </div>
+                        <div class="mod-name">Aov Mod (No Hack)</div>
 
                         <div class="mod-info">
-
-                            <span class="tag">
-                                iOS
-                            </span>
-
-                            <span class="tag"
-                                  id="aovModDownloads">
+                            <span class="tag">iOS</span>
+                            <span class="tag" id="aovModDownloads">
                                 ⬇ 0 lượt tải
                             </span>
-
-                            <span class="tag">
-                                Đang được cập nhật
-                            </span>
-
+                            <span class="tag">Đang được cập nhật</span>
                         </div>
-
                     </div>
-
                 </div>
 
-                <div class="arrow">
-                    →
-                </div>
-
+                <div class="arrow">→</div>
             </a>
-
 
             <!-- AOV CHEAT -->
 
-            <a
-                class="mod-card"
-                href="#"
-                id="aovCheat"
-            >
-
+            <a class="mod-card" href="#" id="aovCheat">
                 <div class="mod-left">
-
-                    <div class="mod-icon">
-                        🎮
-                    </div>
+                    <div class="mod-icon">🎮</div>
 
                     <div>
-
-                        <div class="mod-name">
-                            Aov Cheat
-                        </div>
+                        <div class="mod-name">Aov Cheat</div>
 
                         <div class="mod-info">
-
-                            <span class="tag">
-                                iOS
-                            </span>
-
-                            <span class="tag"
-                                  id="aovCheatDownloads">
+                            <span class="tag">iOS</span>
+                            <span class="tag" id="aovCheatDownloads">
                                 ⬇ 0 lượt tải
                             </span>
-
-                            <span class="tag">
-                                Đang được cập nhật
-                            </span>
-
+                            <span class="tag">Đang được cập nhật</span>
                         </div>
-
                     </div>
-
                 </div>
 
-                <div class="arrow">
-                    →
-                </div>
-
+                <div class="arrow">→</div>
             </a>
-
 
         </section>
 
+        <!-- BẢNG CHỌN GTIKTOK -->
 
-        <!-- =========================
-             DISCORD
-             ========================= -->
+        <div
+            class="gtiktok-modal"
+            id="gtiktokModal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="gtiktokTitle"
+        >
+            <div class="gtiktok-panel">
+
+                <div class="gtiktok-heading" id="gtiktokTitle">
+                    GTiktok
+                </div>
+
+                <div class="gtiktok-description">
+                    Chọn phiên bản phù hợp với thiết bị của bạn
+                </div>
+
+                <a
+                    class="gtiktok-option"
+                    href="https://ipas.cc/7yhvd7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <div class="gtiktok-option-icon">📱</div>
+
+                    <div>
+                        <div class="gtiktok-option-name">
+                            GTiktok APK
+                        </div>
+
+                        <div class="gtiktok-option-info">
+                            Tải phiên bản dành cho Android
+                        </div>
+                    </div>
+                </a>
+
+                <a
+                    class="gtiktok-option"
+                    href="https://ipas.cc/8bg8yx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <div class="gtiktok-option-icon">🍎</div>
+
+                    <div>
+                        <div class="gtiktok-option-name">
+                            GTiktok iOS
+                        </div>
+
+                        <div class="gtiktok-option-info">
+                            Tải phiên bản dành cho iPhone/iPad
+                        </div>
+                    </div>
+                </a>
+
+                <button
+                    type="button"
+                    class="gtiktok-close"
+                    id="gtiktokClose"
+                >
+                    Đóng
+                </button>
+
+            </div>
+        </div>
+
+        <!-- DISCORD -->
 
         <a
             class="discord"
@@ -1542,149 +857,67 @@
             target="_blank"
             rel="noopener noreferrer"
         >
-
             💬 THAM GIA DISCORD
 
             <span class="discord-small">
                 Cộng đồng ZUNADAM
             </span>
-
         </a>
-
 
         <!-- FOOTER -->
 
         <footer>
-
             © 2026 ZUNADAM MOD
-
             <br>
-
             Zunadam
-
         </footer>
-
 
     </main>
 
-
-    <!-- =========================
-         JAVASCRIPT
-         ========================= -->
+    <!-- JAVASCRIPT -->
 
     <script>
-
-
-        /* =========================
-           LOADING
-           ========================= */
+        /* LOADING: 0% -> 100% */
 
         let progress = 0;
 
         const loadingBar =
-            document.getElementById(
-                "loadingBar"
-            );
+            document.getElementById("loadingBar");
 
         const loadingPercent =
-            document.getElementById(
-                "loadingPercent"
-            );
+            document.getElementById("loadingPercent");
 
         const loading =
-            document.getElementById(
-                "loading"
-            );
+            document.getElementById("loading");
 
+        const loadingTimer = setInterval(function() {
+            progress++;
 
-        const loadingTimer =
-            setInterval(
-                function () {
+            loadingBar.style.width = progress + "%";
+            loadingPercent.textContent = progress + "%";
 
-                    progress++;
+            if (progress >= 100) {
+                clearInterval(loadingTimer);
 
-                    loadingBar.style.width =
-                        progress + "%";
+                setTimeout(function() {
+                    loading.classList.add("hide");
+                }, 350);
+            }
+        }, 20);
 
-                    loadingPercent.textContent =
-                        progress + "%";
-
-
-                    if (
-                        progress >= 100
-                    ) {
-
-                        clearInterval(
-                            loadingTimer
-                        );
-
-
-                        setTimeout(
-                            function () {
-
-                                loading.classList
-                                    .add("hide");
-
-                            },
-                            350
-                        );
-
-                    }
-
-                },
-                20
-            );
-
-
-        /* =========================
-           ĐỒNG HỒ
-           ========================= */
+        /* ĐỒNG HỒ */
 
         function updateClock() {
+            const now = new Date();
 
-            const now =
-                new Date();
+            const hours = String(now.getHours()).padStart(2, "0");
+            const minutes = String(now.getMinutes()).padStart(2, "0");
+            const seconds = String(now.getSeconds()).padStart(2, "0");
 
-
-            const hours =
-                String(
-                    now.getHours()
-                ).padStart(
-                    2,
-                    "0"
-                );
-
-
-            const minutes =
-                String(
-                    now.getMinutes()
-                ).padStart(
-                    2,
-                    "0"
-                );
-
-
-            const seconds =
-                String(
-                    now.getSeconds()
-                ).padStart(
-                    2,
-                    "0"
-                );
-
-
-            document.getElementById(
-                "clockTime"
-            ).textContent =
-                hours +
-                ":" +
-                minutes +
-                ":" +
-                seconds;
-
+            document.getElementById("clockTime").textContent =
+                hours + ":" + minutes + ":" + seconds;
 
             const days = [
-
                 "Chủ nhật",
                 "Thứ hai",
                 "Thứ ba",
@@ -1692,277 +925,137 @@
                 "Thứ năm",
                 "Thứ sáu",
                 "Thứ bảy"
-
             ];
 
+            const day = days[now.getDay()];
+            const date = String(now.getDate()).padStart(2, "0");
+            const month = String(now.getMonth() + 1).padStart(2, "0");
+            const year = now.getFullYear();
 
-            const day =
-                days[
-                    now.getDay()
-                ];
-
-
-            const date =
-                String(
-                    now.getDate()
-                ).padStart(
-                    2,
-                    "0"
-                );
-
-
-            const month =
-                String(
-                    now.getMonth() + 1
-                ).padStart(
-                    2,
-                    "0"
-                );
-
-
-            const year =
-                now.getFullYear();
-
-
-            document.getElementById(
-                "clockDate"
-            ).textContent =
-                day +
-                " • " +
-                date +
-                "/" +
-                month +
-                "/" +
-                year;
-
+            document.getElementById("clockDate").textContent =
+                day + " • " + date + "/" + month + "/" + year;
         }
-
 
         updateClock();
+        setInterval(updateClock, 1000);
 
+        /* MƯA XANH */
 
-        setInterval(
-            updateClock,
-            1000
-        );
-
-
-        /* =========================
-           MƯA XANH
-           ========================= */
-
-        const rain =
-            document.getElementById(
-                "rain"
-            );
-
-
+        const rain = document.getElementById("rain");
         const totalDrops = 120;
 
+        for (let i = 0; i < totalDrops; i++) {
+            const drop = document.createElement("div");
 
-        for (
-            let i = 0;
-            i < totalDrops;
-            i++
-        ) {
-
-            const drop =
-                document.createElement(
-                    "div"
-                );
-
-
-            drop.className =
-                "rain-drop";
-
-
-            drop.style.left =
-                Math.random() *
-                100 +
-                "%";
-
-
-            drop.style.height =
-                (
-                    35 +
-                    Math.random() *
-                    60
-                ) +
-                "px";
-
+            drop.className = "rain-drop";
+            drop.style.left = Math.random() * 100 + "%";
+            drop.style.height = (35 + Math.random() * 60) + "px";
 
             drop.style.animationDuration =
-                (
-                    .45 +
-                    Math.random() *
-                    .8
-                ) +
-                "s";
-
+                (0.45 + Math.random() * 0.8) + "s";
 
             drop.style.animationDelay =
-                (
-                    Math.random() *
-                    2
-                ) +
-                "s";
-
+                (Math.random() * 2) + "s";
 
             drop.style.opacity =
-                (
-                    .20 +
-                    Math.random() *
-                    .65
-                );
+                (0.20 + Math.random() * 0.65);
 
-
-            rain.appendChild(
-                drop
-            );
-
+            rain.appendChild(drop);
         }
 
+        /* SỐ LƯỢT TẢI HIỂN THỊ */
 
-        /* =========================
-           LƯỢT TẢI NGẪU NHIÊN
-           ========================= */
-
-        function randomDownloads(
-            min,
-            max
-        ) {
-
-            return Math.floor(
-                Math.random() *
-                (
-                    max - min + 1
-                )
-                + min
-            );
-
+        function randomDownloads(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
+        const avoEspDownloads = randomDownloads(1000, 9999);
+        const aovModDownloads = randomDownloads(1000, 9999);
+        const aovCheatDownloads = randomDownloads(1000, 9999);
 
-        const avoEspDownloads =
-            randomDownloads(
-                1000,
-                9999
-            );
+        document.getElementById("avoEspDownloads").textContent =
+            "⬇ " + avoEspDownloads.toLocaleString("en-US") + " lượt tải";
 
+        document.getElementById("aovModDownloads").textContent =
+            "⬇ " + aovModDownloads.toLocaleString("en-US") + " lượt tải";
 
-        const aovModDownloads =
-            randomDownloads(
-                1000,
-                9999
-            );
+        document.getElementById("aovCheatDownloads").textContent =
+            "⬇ " + aovCheatDownloads.toLocaleString("en-US") + " lượt tải";
 
+        /* AVO ESP */
 
-        const aovCheatDownloads =
-            randomDownloads(
-                1000,
-                9999
-            );
+        document.getElementById("avoEsp").addEventListener(
+            "click",
+            function(event) {
+                event.preventDefault();
+                alert("AVO Esp đang được cập nhật!");
+            }
+        );
 
+        /* AOV MOD */
 
-        document.getElementById(
-            "avoEspDownloads"
-        ).textContent =
-            "⬇ " +
-            avoEspDownloads.toLocaleString(
-                "en-US"
-            ) +
-            " lượt tải";
+        document.getElementById("aovMod").addEventListener(
+            "click",
+            function(event) {
+                event.preventDefault();
+                alert("Aov Mod (No Hack) đang được cập nhật!");
+            }
+        );
 
+        /* AOV CHEAT */
 
-        document.getElementById(
-            "aovModDownloads"
-        ).textContent =
-            "⬇ " +
-            aovModDownloads.toLocaleString(
-                "en-US"
-            ) +
-            " lượt tải";
+        document.getElementById("aovCheat").addEventListener(
+            "click",
+            function(event) {
+                event.preventDefault();
+                alert("Aov Cheat đang được cập nhật!");
+            }
+        );
 
+        /* GTIKTOK: MỞ VÀ ĐÓNG BẢNG CHỌN */
 
-        document.getElementById(
-            "aovCheatDownloads"
-        ).textContent =
-            "⬇ " +
-            aovCheatDownloads.toLocaleString(
-                "en-US"
-            ) +
-            " lượt tải";
+        const gtiktokButton = document.getElementById("gtiktok");
+        const gtiktokModal = document.getElementById("gtiktokModal");
+        const gtiktokClose = document.getElementById("gtiktokClose");
 
+        function openGtiktokModal() {
+            gtiktokModal.classList.add("show");
+            gtiktokClose.focus();
+        }
 
-        /* =========================
-           AVO ESP
-           ========================= */
+        function closeGtiktokModal() {
+            gtiktokModal.classList.remove("show");
+            gtiktokButton.focus();
+        }
 
-        document
-            .getElementById(
-                "avoEsp"
-            )
-            .addEventListener(
-                "click",
-                function(event) {
+        gtiktokButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            openGtiktokModal();
+        });
 
-                    event.preventDefault();
+        gtiktokClose.addEventListener("click", function() {
+            closeGtiktokModal();
+        });
 
-                    alert(
-                        "AVO Esp đang được cập nhật!"
-                    );
+        /* Nhấn ra ngoài bảng để đóng */
 
-                }
-            );
+        gtiktokModal.addEventListener("click", function(event) {
+            if (event.target === gtiktokModal) {
+                closeGtiktokModal();
+            }
+        });
 
+        /* Nhấn ESC để đóng */
 
-        /* =========================
-           AOV MOD
-           ========================= */
-
-        document
-            .getElementById(
-                "aovMod"
-            )
-            .addEventListener(
-                "click",
-                function(event) {
-
-                    event.preventDefault();
-
-                    alert(
-                        "Aov Mod (No Hack) đang được cập nhật!"
-                    );
-
-                }
-            );
-
-
-        /* =========================
-           AOV CHEAT
-           ========================= */
-
-        document
-            .getElementById(
-                "aovCheat"
-            )
-            .addEventListener(
-                "click",
-                function(event) {
-
-                    event.preventDefault();
-
-                    alert(
-                        "Aov Cheat đang được cập nhật!"
-                    );
-
-                }
-            );
-
-
+        document.addEventListener("keydown", function(event) {
+            if (
+                event.key === "Escape" &&
+                gtiktokModal.classList.contains("show")
+            ) {
+                closeGtiktokModal();
+            }
+        });
     </script>
 
 </body>
-
 </html>
-```
