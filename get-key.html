@@ -1,387 +1,229 @@
+
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>ZUNADAM - Get Key</title>
-
-<style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-
-    min-height: 100vh;
-
-    font-family: Arial, sans-serif;
-
-    color: white;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #172554,
-            #020617 65%
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 20px;
-}
-
-.box {
-
-    width: 100%;
-
-    max-width: 430px;
-
-    background:
-        rgba(15, 23, 42, .95);
-
-    border:
-        1px solid
-        rgba(96,165,250,.35);
-
-    border-radius: 25px;
-
-    padding: 30px;
-
-    text-align: center;
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.5);
-}
-
-.avatar {
-
-    width: 90px;
-
-    height: 90px;
-
-    border-radius: 50%;
-
-    object-fit: cover;
-
-    border: 3px solid #60a5fa;
-
-    margin-bottom: 18px;
-}
-
-h1 {
-
-    font-size: 28px;
-
-    margin-bottom: 8px;
-}
-
-.desc {
-
-    color: #94a3b8;
-
-    margin-bottom: 25px;
-}
-
-.info {
-
-    padding: 15px;
-
-    background:
-        rgba(30,41,59,.8);
-
-    border-radius: 14px;
-
-    color: #cbd5e1;
-
-    line-height: 1.6;
-
-    margin-bottom: 20px;
-}
-
-button {
-
-    width: 100%;
-
-    padding: 15px;
-
-    border: none;
-
-    border-radius: 13px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #2563eb,
-            #06b6d4
-        );
-
-    color: white;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: .2s;
-}
-
-button:hover {
-
-    transform: translateY(-2px);
-}
-
-button:disabled {
-
-    opacity: .6;
-
-    cursor: wait;
-}
-
-.key-area {
-
-    display: none;
-
-    margin-top: 20px;
-}
-
-.key {
-
-    background: #020617;
-
-    border:
-        1px solid #334155;
-
-    padding: 17px;
-
-    border-radius: 12px;
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    word-break: break-all;
-
-    margin-bottom: 10px;
-}
-
-.copy {
-
-    background: #334155;
-
-    margin-bottom: 10px;
-}
-
-.verify {
-
-    background:
-        linear-gradient(
-            135deg,
-            #16a34a,
-            #22c55e
-        );
-}
-
-.message {
-
-    margin-top: 15px;
-
-    min-height: 22px;
-
-    color: #fbbf24;
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071426">
+  <title>ZUNADAM KEY SYSTEM</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      color: white;
+      background:
+        radial-gradient(ellipse at top, #123d69 0%, transparent 55%),
+        linear-gradient(135deg, #050b16, #0b1930);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 430px;
+      padding: 32px 24px;
+      text-align: center;
+      background: rgba(13, 29, 52, 0.95);
+      border: 1px solid rgba(0, 170, 255, 0.45);
+      border-radius: 22px;
+      box-shadow: 0 0 35px rgba(0, 145, 255, 0.15);
+    }
+
+    .logo {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 36px;
+      border-radius: 50%;
+      color: #38bdf8;
+      background: #102b49;
+      border: 1px solid #168de2;
+    }
+
+    h1 {
+      font-size: 27px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: #8ebce7;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+
+    .key-box {
+      padding: 20px 12px;
+      margin-bottom: 20px;
+      background: #071426;
+      border: 1px solid #203c5d;
+      border-radius: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .key-label {
+      color: #8ba9c9;
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    #key {
+      color: #45d4ff;
+      font-size: 19px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      line-height: 1.6;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .generate {
+      color: white;
+      background: linear-gradient(90deg, #0878e8, #00b8ff);
+      box-shadow: 0 4px 18px rgba(0, 160, 255, 0.2);
+    }
+
+    .copy {
+      color: #38bdf8;
+      background: #102b49;
+      border: 1px solid #17649a;
+    }
+
+    button:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    #message {
+      min-height: 18px;
+      margin-top: 14px;
+      color: #6ee7b7;
+      font-size: 12px;
+    }
+
+    .footer {
+      margin-top: 25px;
+      color: #607d9e;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+  </style>
 </head>
 
 <body>
-
-<div class="box">
-
-    <img
-        src="avatar.png"
-        class="avatar"
-        alt="ZUNADAM"
-    >
+  <main class="container">
+    <div class="logo">🔑</div>
 
     <h1>ZUNADAM</h1>
+    <p class="subtitle">KEY GENERATOR SYSTEM</p>
 
-    <div class="desc">
-        ROBLOX KEY SYSTEM
-    </div>
+    <section class="key-box">
+      <p class="key-label">YOUR ACCESS KEY</p>
+      <div id="key">Ấn GET KEY để tạo mã</div>
+    </section>
 
-    <div class="info">
-
-        🔑 Key có thời hạn
-        <b>24 giờ</b>.<br>
-
-        ⚡ Key chỉ sử dụng được
-        <b>1 lần</b>.
-
-    </div>
-
-    <button id="getButton">
-        🔑 GET KEY
+    <button class="generate" id="generateBtn" onclick="generateKey()">
+      ⚡ GET KEY
     </button>
 
-    <div
-        class="key-area"
-        id="keyArea"
-    >
+    <button class="copy" onclick="copyKey()">
+      📋 COPY KEY
+    </button>
 
-        <div
-            class="key"
-            id="keyText"
-        ></div>
+    <p id="message" role="status" aria-live="polite"></p>
 
-        <button
-            class="copy"
-            id="copyButton"
-        >
-            📋 SAO CHÉP KEY
-        </button>
-
-        <button
-            class="verify"
-            onclick="location.href='verify-key.html'"
-        >
-            ➜ NHẬP KEY
-        </button>
-
+    <div class="footer">
+      ZUNADAM MOD © 2026
     </div>
+  </main>
 
-    <div
-        class="message"
-        id="message"
-    ></div>
+  <script>
+    let currentKey = "";
 
-</div>
+    function generateKey() {
+      const characters = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
-<script>
+      function randomGroup() {
+        let result = "";
 
-/*
-=================================
-THAY URL NÀY
-=================================
-*/
-
-const API =
-    "YOUR-WORKER-URL";
-
-
-const getButton =
-    document.getElementById(
-        "getButton"
-    );
-
-const keyArea =
-    document.getElementById(
-        "keyArea"
-    );
-
-const keyText =
-    document.getElementById(
-        "keyText"
-    );
-
-const message =
-    document.getElementById(
-        "message"
-    );
-
-
-getButton.onclick = async function() {
-
-    getButton.disabled = true;
-
-    getButton.textContent =
-        "⏳ ĐANG TẠO KEY...";
-
-    message.textContent = "";
-
-    try {
-
-        const result =
-            await fetch(
-                API +
-                "/api/create-key"
-            );
-
-        const data =
-            await result.json();
-
-        if (!data.success) {
-
-            throw new Error(
-                data.message ||
-                "Không thể tạo key."
-            );
+        for (let i = 0; i < 4; i++) {
+          const index = Math.floor(
+            Math.random() * characters.length
+          );
+          result += characters[index];
         }
 
-        keyText.textContent =
-            data.key;
+        return result;
+      }
 
-        keyArea.style.display =
-            "block";
+      currentKey =
+        "ZUNA-" +
+        randomGroup() + "-" +
+        randomGroup() + "-" +
+        randomGroup();
 
-        getButton.textContent =
-            "✅ KEY ĐÃ ĐƯỢC TẠO";
+      document.getElementById("key").textContent = currentKey;
+      document.getElementById("message").textContent =
+        "Tạo Key thành công!";
 
-    } catch(error) {
-
-        message.textContent =
-            "❌ " +
-            error.message;
-
-        getButton.disabled = false;
-
-        getButton.textContent =
-            "🔑 GET KEY";
+      document.getElementById("generateBtn").textContent =
+        "⚡ GENERATE NEW KEY";
     }
-};
 
+    async function copyKey() {
+      const message = document.getElementById("message");
 
-document
-    .getElementById("copyButton")
-    .onclick = async function() {
+      if (!currentKey) {
+        message.textContent = "Hãy nhấn GET KEY trước!";
+        return;
+      }
 
-        const key =
-            keyText.textContent;
+      try {
+        await navigator.clipboard.writeText(currentKey);
+        message.textContent = "Đã sao chép Key thành công!";
+      } catch (error) {
+        const input = document.createElement("textarea");
+        input.value = currentKey;
+        input.style.position = "fixed";
+        input.style.opacity = "0";
+        document.body.appendChild(input);
+        input.select();
 
-        try {
+        const copied = document.execCommand("copy");
+        input.remove();
 
-            await navigator
-                .clipboard
-                .writeText(key);
-
-            this.textContent =
-                "✅ ĐÃ SAO CHÉP";
-
-        } catch {
-
-            message.textContent =
-                "Hãy copy key thủ công.";
-        }
-    };
-
-</script>
-
+        message.textContent = copied
+          ? "Đã sao chép Key thành công!"
+          : "Không sao chép được. Hãy chọn và sao chép Key thủ công.";
+      }
+    }
+  </script>
 </body>
-
 </html>
